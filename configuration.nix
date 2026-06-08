@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./packages.nix
     ];
 
   # Bootloader.
@@ -43,6 +44,12 @@
     LC_PAPER = "en_IN";
     LC_TELEPHONE = "en_IN";
     LC_TIME = "en_IN";
+  };
+
+  #Enable Bluetooth
+    hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
   };
 
   # Enable the X11 windowing system.
@@ -86,6 +93,7 @@
     isNormalUser = true;
     description = "David Denny George";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.fish;
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -98,18 +106,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-	vim
-	wget
-	vscode
-	obsidian
-	chromium
-	git
-	tauon
-  ];
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -119,13 +115,27 @@
   # };
 
   # List services that you want to enable:
+  #Syncthing
+  services.syncthing = {
+    enable = true;
+    user = "dav";
+    dataDir = "/home/dav"; # Default location for syncthing's config/database files
+    openDefaultPorts = true;
+  };
+
+  programs.fish.enable = true;
+
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
+  #Experimental features
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 53317 ];
+  networking.firewall.allowedUDPPorts = [ 53317 ];
+
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
