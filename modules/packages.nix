@@ -15,6 +15,7 @@
   keepassxc
   kitty
   localsend
+  fastfetch
   ];
   
   # List packages installed in system profile. To search, run:
