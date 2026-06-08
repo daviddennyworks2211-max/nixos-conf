@@ -14,8 +14,15 @@
 	zathuraPkgs.zathura_pdf_mupdf
   keepassxc
   kitty
+  localsend
   ];
   
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+
+  # Install firefox.
+  programs.firefox.enable = true;
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 }
