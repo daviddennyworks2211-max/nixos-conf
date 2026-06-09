@@ -47,4 +47,9 @@
   };
 
   programs.fish.enable = true;
+
+  #Gnome Keyring service
+  services.gnome.gnome-keyring.enable = true;
+
+  security.pam.services.sddm.enableGnomeKeyring = true;
   }

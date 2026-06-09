@@ -16,6 +16,15 @@
   kitty
   localsend
   fastfetch
+  waybar
+  dunst
+  awww
+  brightnessctl
+  seahorse
+  libsecret
+  hyprpolkitagent
+  hyprlauncher
+  onlyoffice-desktopeditors
   ];
   
   # List packages installed in system profile. To search, run:
@@ -26,4 +35,15 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+    xwayland.enable = true;
+  };
+  
+  # WAYBAR
+  programs.waybar = {
+  enable = true;
+  };
 }
