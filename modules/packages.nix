@@ -25,6 +25,9 @@
   hyprpolkitagent
   hyprlauncher
   onlyoffice-desktopeditors
+  gemini-cli
+  playerctl
+  wl-clipboard
   ];
   
   # List packages installed in system profile. To search, run:
