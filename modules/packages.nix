@@ -30,6 +30,10 @@
   wl-clipboard
   ani-cli
   mpv
+  yt-dlp
+  ffmpeg
+  fzf
+  aria2
   ];
   
   # List packages installed in system profile. To search, run:
