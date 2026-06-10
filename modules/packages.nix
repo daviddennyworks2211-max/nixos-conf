@@ -28,6 +28,8 @@
   gemini-cli
   playerctl
   wl-clipboard
+  ani-cli
+  mpv
   ];
   
   # List packages installed in system profile. To search, run:
