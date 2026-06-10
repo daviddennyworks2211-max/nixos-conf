@@ -9,6 +9,7 @@
       ./modules/network.nix
       ./modules/services.nix
       ./modules/users.nix
+      ./fonts.nix
     ];
 
   
